@@ -2,6 +2,7 @@
 
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #E2E2E2;
 }
 
 h1:focus {
@@ -68,8 +69,7 @@ a, .btn-link {
 }
 
 .gradient-container {
-   
-    background: linear-gradient(to bottom, #2FC12C, #006F1F);
+    background-color: #E2E2E2;
     background-size: cover;
     background-attachment: fixed;
     height: 100vh;
