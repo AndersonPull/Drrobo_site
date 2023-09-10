@@ -1,0 +1,60 @@
+﻿@page "/"
+
+<PageTitle>Dr robo</PageTitle>
+
+<div>
+    <div class="row justify-content-between">
+        <div class="col-md-4 align-self-center">
+            <h1 class="robo-title">Dr. robo</h1>
+            <h2 class="tag-number footer">000</h2>
+        </div>
+        <div class="col-md-7 m-0 align-self-center">
+            <div class="footer-container">
+                <div class="row justify-content-between">
+                    <div class="col-md-6 align-self-center">
+                        <p class="text1">
+                            Dr robot aims to ease your journey<br>
+                            with connection between<br>
+                            hardware and software
+                        </p>
+                    </div>
+                    <div class="col-md-6 align-self-center">
+                        <div class="text2">
+                            <p>
+                                Dr robo <br>
+                                software<br />
+                                for hardware
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <img src="Images/modelo.png" alt="modelo" class="footer-image" />
+                <div class="terminal" id="terminal" style="@terminalStyle">
+                    <p class="terminal_text">>_ Estamos em construção</p>
+                    <button type="button" class="terminal_button" @onclick="MoverTerminalParaDireita">
+                        <img src="Images/arrow_green_right.png" class="terminal_button_image" alt="Texto alternativo da imagem" />
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private bool moverTerminal;
+
+    // Calcula o estilo para mover a div .terminal
+    private string terminalStyle => moverTerminal ? "transform: translateX(100%);" : "";
+
+    private void MoverTerminalParaDireita()
+    {
+        moverTerminal = true;
+
+        // Remova o movimento após a animação ser concluída (opcional)
+        Task.Delay(2000).ContinueWith(_ =>
+        {
+            moverTerminal = false;
+            InvokeAsync(StateHasChanged);
+        });
+    }
+}

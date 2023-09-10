@@ -1,0 +1,22 @@
+﻿{
+  "name": "drrobo_site",
+  "short_name": "drrobo_site",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#E2E2E2",
+  "theme_color": "#E2E2E2",
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ]
+}
+
