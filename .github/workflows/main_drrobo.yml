@@ -17,7 +17,7 @@ jobs:
           include-prerelease: true
 
       - name: Publish .NET Core Project
-        run: dotnet publish drrobo_site/drrobo_site.csproj -c Release -o release --nologo
+        run: dotnet publish drrobo_site.csproj -c Release -o release --nologo
         
       - name: Change base-tag in index.html from / to drrobo_site
         run: sed -i 's/<base href="\/" \/>/<base href="\/drrobo_site\/" \/>/g' release/wwwroot/index.html
