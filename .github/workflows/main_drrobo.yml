@@ -9,15 +9,25 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      
+      - uses: actions/checkout@v2
+
       - name: Setup dotnet
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: '7.x'
           include-prerelease: true
 
-      - name: Publish .NET Core Project
-        run: dotnet publish drrobo_site.csproj -c Release -o release --nologo
+      - name: Build with dotnet
+        run: dotnet build --configuration Release
+
+      - name: dotnet publish
+        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
+
+      - name: Upload artifact for deployment job
+        uses: actions/upload-artifact@v2
+        with:
+          name: .net-app
+          path: ${{env.DOTNET_ROOT}}/myapp
         
       - name: Change base-tag in index.html from / to drrobo_site
         run: sed -i 's/<base href="\/" \/>/<base href="\/drrobo_site\/" \/>/g' release/wwwroot/index.html
